@@ -1,0 +1,8 @@
+{
+  "availability-zones:account=975050262991:region=ca-central-1": [
+    "ca-central-1a",
+    "ca-central-1b",
+    "ca-central-1d"
+  ],
+  "ssm:account=975050262991:parameterName=/sg/rds:region=ca-central-1": "sg-0e45604e2bd75e65a"
+}
