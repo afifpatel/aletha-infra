@@ -5,6 +5,7 @@ import { aws_ec2 as ec2 } from 'aws-cdk-lib'
 import { VpcStack } from '../lib/vpc-stack';
 import { DbStack } from '../lib/db-stack';
 import { AcmStack } from '../lib/acm-stack';
+import { CognitoStack } from '../lib/cognito-stack';
 
 /**
  * Configuration
@@ -16,11 +17,8 @@ const domainName = 'cloudonecreator.com';
 
 const app = new cdk.App();
 const vpc = new VpcStack(app, 'vpc', { env: envCA });
-new AcmStack(app, 'acm', {
-  env: envCA,
-  domainName,
-  hostedZoneId
-});
+new AcmStack(app, 'acm', { env: envCA, domainName, hostedZoneId });
+new CognitoStack(app, 'cognito', { env: envCA });
 
 new DbStack(app, 'db', {
   env: envCA,
