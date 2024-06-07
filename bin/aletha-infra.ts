@@ -4,15 +4,23 @@ import * as cdk from 'aws-cdk-lib';
 import { aws_ec2 as ec2 } from 'aws-cdk-lib'
 import { VpcStack } from '../lib/vpc-stack';
 import { DbStack } from '../lib/db-stack';
+import { AcmStack } from '../lib/acm-stack';
 
 /**
  * Configuration
  */
 const { CDK_DEFAULT_ACCOUNT } = process.env;
 const envCA = { region: 'ca-central-1', account: CDK_DEFAULT_ACCOUNT };
+const hostedZoneId = 'Z09419841NVDNCKVZWM9H';
+const domainName = 'cloudonecreator.com';
 
 const app = new cdk.App();
 const vpc = new VpcStack(app, 'vpc', { env: envCA });
+new AcmStack(app, 'acm', {
+  env: envCA,
+  domainName,
+  hostedZoneId
+});
 
 new DbStack(app, 'db', {
   env: envCA,

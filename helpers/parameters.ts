@@ -64,4 +64,12 @@ export default class Parameters {
         this.setParameter(ParameterNames.lambdaSecurityGroupId, value);
     }
 
+    public get acmCertArn() {
+        return this.getParameter(ParameterNames.acmCertArn);
+    }
+
+    public set acmCertArn(value: string) {
+        this.setParameter(ParameterNames.acmCertArn, value);
+    }
+
 }
