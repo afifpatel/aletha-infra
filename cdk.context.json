@@ -4,5 +4,10 @@
     "ca-central-1b",
     "ca-central-1d"
   ],
-  "ssm:account=975050262991:parameterName=/sg/rds:region=ca-central-1": "sg-0e45604e2bd75e65a"
+  "ssm:account=975050262991:parameterName=/sg/rds:region=ca-central-1": "sg-0e45604e2bd75e65a",
+  "ssm:account=975050262991:parameterName=/rds/proxy/endpoint:region=ca-central-1": "main.proxy-cj0msowyetg9.ca-central-1.rds.amazonaws.com",
+  "ssm:account=975050262991:parameterName=/sg/lambda:region=ca-central-1": "sg-0d210c219373ad7c8",
+  "ssm:account=975050262991:parameterName=/cognito/userPoolId:region=ca-central-1": "ca-central-1_dFvuklN7S",
+  "ssm:account=975050262991:parameterName=/cognito/clientId:region=ca-central-1": "6odbtpkuhh190ej9en09kpnrhr",
+  "ssm:account=975050262991:parameterName=/acm/cert/arn:region=ca-central-1": "arn:aws:acm:ca-central-1:975050262991:certificate/1eed66d8-a4b5-41b1-83e1-286e2597b487"
 }

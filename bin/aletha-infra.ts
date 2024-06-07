@@ -6,6 +6,7 @@ import { VpcStack } from '../lib/vpc-stack';
 import { DbStack } from '../lib/db-stack';
 import { AcmStack } from '../lib/acm-stack';
 import { CognitoStack } from '../lib/cognito-stack';
+import { ApiStack } from '../lib/api-stack';
 
 /**
  * Configuration
@@ -28,4 +29,13 @@ new DbStack(app, 'db', {
   writerSize: ec2.InstanceSize.MEDIUM,
   readerClass: ec2.InstanceClass.T3,
   readerSize: ec2.InstanceSize.MEDIUM
-})
+});
+
+new ApiStack(app, 'api', {
+  env: envCA,
+  vpc: vpc.vpc,
+  rdsSecretName: 'mainRdsSecret',
+  subDomainName: 'api',
+  domainName,
+  hostedZoneId
+});
