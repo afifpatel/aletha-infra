@@ -61,14 +61,13 @@ export class DbStack extends Stack {
             publiclyAccessible: false,
             instanceIdentifier: 'writer',
             instanceType: writerInstanceType,
-            enablePerformanceInsights: true,
         });
 
-        const readerInstance = [rds.ClusterInstance.provisioned('reader', {
-            publiclyAccessible: false,
-            instanceIdentifier: 'reader',
-            instanceType: readerInstanceType,
-            enablePerformanceInsights: true,
+        const readerInstance = [
+            rds.ClusterInstance.provisioned('reader', {
+                publiclyAccessible: false,
+                instanceIdentifier: 'reader',
+                instanceType: readerInstanceType,
             }),
         ];
 
@@ -93,7 +92,7 @@ export class DbStack extends Stack {
             backup: {
                 retention: Duration.days(7)
             },
-            deletionProtection: false, // ONLY FOR TESTING
+            deletionProtection: true,
             storageEncrypted: true,
         });
 
